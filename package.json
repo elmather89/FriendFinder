@@ -1,0 +1,23 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "dog friend finding app - full stack project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmather89/FriendFinder.git"
+  },
+  "author": "emather",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elmather89/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/elmather89/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}

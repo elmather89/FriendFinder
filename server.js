@@ -1,20 +1,31 @@
-// Your server.js file should require the basic npm packages we've used in class: express and path.
-var express=require("express")
-var htmlRoutes = require("./routing/htmlRoutes");
-var apiRoutes = require("./routing/apiRoutes");
+var path = require('path');
+var express = require('express');
+var bodyParser = require('body-parser');
+
+// hook up routes
+var apiRoutes = require('./app/routing/apiRoutes.js');
+var htmlRoutes = require('./app/routing/htmlRoutes.js');
+
+// express
 var app = express();
+var PORT = process.env.PORT || 8080;
 
-app.use (express.json());
-app.use (express.urlencoded({extended: true}));
+// static
+app.use(express.static("public"));
+app.use('/static', express.static(path.join(__dirname + 'public')));
 
-var port = process.env.port || 8080;
+// data parsing
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-app.use("/", htmlRoutes);
-app.use("/api", apiRoutes);
-
+// initialize routes 
 apiRoutes(app);
 htmlRoutes(app);
 
-app.listen(port,function(){
-    console.log("Server listening on port " + port);
+// listen
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+  console.log("http://localhost:8080");
 });
