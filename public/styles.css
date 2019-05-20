@@ -4,6 +4,10 @@ body {
     color: whitesmoke;
 }
 
+p {
+  color: #47555F;
+}
+
 nav .nav-wrapper {
     background-color: #C8923B;
     height: 110%;
@@ -66,4 +70,17 @@ nav .nav-wrapper {
   /* icon prefix focus color */
   .input-field .prefix.active {
     color: #C8923B !important;
+  }
+
+  [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+    border: 2px solid #C8923B;
+  }
+
+  [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: #C8923B;
+  }
+
+  .question {
+    border-bottom: 1px solid #C8923B;
+    padding: 10px;
   }
