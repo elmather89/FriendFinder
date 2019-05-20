@@ -25,3 +25,6 @@ var dogFriends = [
         scores: []
     }    
 ];
+
+// export
+module.exports = dogData;

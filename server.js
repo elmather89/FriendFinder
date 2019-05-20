@@ -12,6 +12,9 @@ var port = process.env.port || 8080;
 app.use("/", htmlRoutes);
 app.use("/api", apiRoutes);
 
+apiRoutes(app);
+htmlRoutes(app);
+
 app.listen(port,function(){
     console.log("Server listening on port " + port);
 });
