@@ -28,5 +28,5 @@ htmlRoutes(app);
 // listen
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
-  console.log("http://localhost:8080");
+  console.log("http://localhost:" + PORT);
 });

@@ -5,7 +5,7 @@
 console.log("apiRoute connected");
 
 // link to dog data
-var dogData = require("../data/friends");
+var dogData = require("../data/friends.js");
 // console.log(dogData);
 
 module.exports = function(app) {
