@@ -11,8 +11,9 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 // static
-app.use(express.static("public"));
-app.use('/static', express.static(path.join(__dirname + 'public')));
+app.use(express.static(path.join(__dirname, './app/public')));
+// app.use(express.static("/public"));
+// app.use('/static', express.static(path.join(__dirname + 'public')));
 
 // data parsing
 app.use(bodyParser.json());
