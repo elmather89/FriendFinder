@@ -31,6 +31,10 @@ nav .nav-wrapper {
     font-size: 20px;
 }
 
+.hound {
+  padding: 20px 0 0 0;
+}
+
 .btn-large {
     background-color: #C8923B;
     margin: 20px 0 0 0;
