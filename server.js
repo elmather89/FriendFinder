@@ -24,6 +24,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // initialize routes 
 apiRoutes(app);
 htmlRoutes(app);
+// app.use("/", htmlRoutes);
+// app.use("/api", apiRoutes);
 
 // listen
 app.listen(PORT, function() {
