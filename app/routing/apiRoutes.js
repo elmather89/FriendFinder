@@ -8,7 +8,7 @@ console.log("apiRoute connected");
 var dogData = require("../data/friends.js");
 // console.log(dogData);
 
-module.exports = function(app) {
+module.exports = function(app) {    
     app.get("/api/friends", function(req, res) {
         res.json(dogData);
     });
