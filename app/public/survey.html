@@ -211,7 +211,33 @@
         </div>
 
         <!-- scripts -->
-        <script src="js/submitBtn.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
+
+                if (!name || !photo) {
+                    alert("Please enter your dog's information!");
+                }
+                else {
+                    var newDog = {
+                        name: $("#first_name").val().trim(),
+                        photo: $("#photo").val().trim()
+                    };
+
+                    $.post("/api/friends", newDog, function (data) {
+                        var bestName = $("#best-name").text(data.name);
+                        var bestImg = $("#best-img").attr("src", data.photo);
+                        console.log(bestName);
+                        console.log(bestImg);
+
+                        alert("Best Match: " + bestName + ", " + bestImg);
+                    });
+                }
+
+            });
+
+        </script>
 
 </body>
 

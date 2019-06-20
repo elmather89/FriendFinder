@@ -8,7 +8,7 @@ var htmlRoutes = require('./app/routing/htmlRoutes.js');
 
 // express
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8000;
 
 // static
 app.use(express.static(path.join(__dirname, './app/public')));
