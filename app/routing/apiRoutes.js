@@ -15,10 +15,36 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
 
+        var bestBud = { name: "", photo: "", compatibility: Infinity }
         var newDogData = req.body;
-        // console.log(newDogData);
+        var newDogScore = newDogData.scores;
+        var scoreDiff;
+
+        // loop thru dogData
+        for (var i = 0; i < dogData.length; i++) {
+            var possibleFriend = dogData[i];
+            scoreDiff = 0;
+
+            // loop thru dogData scores
+            for (var s = 0; s < possibleFriend.scores.length; s++) {
+                var loopedScore = possibleFriend.scores[s];
+                var addedDogScore = newDogScore[s];
+                
+                //maths?
+                scoreDiff = scoreDiff + Math.abs((addedDogScore) - (loopedScore));
+                // console.log(scoreDiff);
+            }
+
+            if (scoreDiff <= bestBud.compatibility) {
+                bestBud.name = possibleFriend.name;
+                bestBud.photo = possibleFriend.photo;
+                bestBud.compatibility = scoreDiff;
+            }
+            
+        }
 
         dogData.push(newDogData);
-        res.json(dogData);
+        res.json(bestBud);
+
     });
 };
