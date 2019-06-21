@@ -13,8 +13,6 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -236,66 +234,79 @@
                         <div class="row">
                             <a class="waves-effect waves-light btn-large" id="submit">Submit</a>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- scripts -->
-        <script type="text/javascript">
+    <!-- Modal Trigger -->
+    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
-            // $(function () {
-            //     $("#contactChoice1").click(function () {
-            //         alert($(this).val());
-            //     });
-            // });
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Best Bud:</h4>
+            <p id="bud-name">A bunch of text</p><br>
+            <img class="limit-photo-size" id="bud-photo" src="" alt="best bud's image">
+        </div>
+        <!-- <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div> -->
+    </div>
 
-            // [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after
-            // [type="radio"]:checked+span
+    <!-- JQuery and materialize's js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-            $("input[name='q1'][type='radio']:not(:checked)").on("click", function () {
-                console.log($(this).val());
-            });
+    <!-- scripts -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.modal').modal();
+        });
 
-            $("#submit").on("click", function (event) {
-                event.preventDefault();
-                var emptyName = $("#first_name").val().trim();
-                var emptyPhoto = $("#photo").val().trim();
+        $("input[name='q1'][type='radio']:not(:checked)").on("click", function () {
+            console.log($(this).val());
+        });
 
-                if (!emptyName || !emptyPhoto) {
-                    alert("Please enter your dog's information!");
-                }
-                else {
-                    var newDog = {
-                        name: $("#first_name").val().trim(),
-                        photo: $("#photo").val().trim(),
-                        scores: [
-                            $("input[name='q1'][type='radio']:checked").val(),
-                            $("input[name='q2'][type='radio']:checked").val(),
-                            $("input[name='q3'][type='radio']:checked").val(),
-                            $("input[name='q4'][type='radio']:checked").val(),
-                            $("input[name='q5'][type='radio']:checked").val()
-                        ]
-                    };
-                    console.log(newDog);
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            var emptyName = $("#first_name").val().trim();
+            var emptyPhoto = $("#photo").val().trim();
 
-                    $.post("/api/friends", newDog, function (data) {
-                        var bestName = $("#best-name").text(data.name);
-                        var bestImg = $("#best-img").attr("src", data.photo);
-                        // console.log(bestName);
-                        // console.log(bestImg);
+            if (!emptyName || !emptyPhoto) {
+                alert("Please enter your dog's information!");
+            }
+            else {
+                var newDog = {
+                    name: $("#first_name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: [
+                        $("input[name='q1'][type='radio']:checked").val(),
+                        $("input[name='q2'][type='radio']:checked").val(),
+                        $("input[name='q3'][type='radio']:checked").val(),
+                        $("input[name='q4'][type='radio']:checked").val(),
+                        $("input[name='q5'][type='radio']:checked").val()
+                    ]
+                };
+                console.log(newDog);
 
-                        // alert("Added your pup, " + newDog.name);
-                        // alert("Best Match: " + bestName + ", " + bestImg);
-                    });
+                $("#submit").attr("data-target", "modal1");
+                $("#submit").addClass("modal-trigger");
 
-                    $("#first_name").val("");
-                    $("#photo").val("");
-                }
+                $.post("/api/friends", newDog, function (data) {
+                    $("#bud-name").text(data.name);
+                    $("#bud-photo").attr("src", data.photo);
+                });
 
-            });
+                $("#first_name").val("");
+                $("#photo").val("");
+            }
 
-        </script>
+        });
+
+    </script>
 
 </body>
 

@@ -8,6 +8,10 @@ p {
   color: #47555F;
 }
 
+h4 {
+  color: #47555F;
+}
+
 nav .nav-wrapper {
     background-color: #C8923B;
     height: 110%;
@@ -29,6 +33,14 @@ nav .nav-wrapper {
     margin: 40px 0 20px 0;
     text-align: center;
     font-size: 20px;
+}
+
+.limit-photo-size {
+  display: block;
+  max-width: 400px;
+  max-height: 400px;
+  width: auto;
+  height: auto;
 }
 
 .hound {
