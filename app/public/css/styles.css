@@ -20,10 +20,22 @@ nav .nav-wrapper {
 .brand-logo.center {
     font-family: 'EB Garamond', serif;
     font-size: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
 }
 
-.fa.fa-paw {
-    font-size: 30px;
+/* @media only screen and (max-width: 793px) {
+  .brand-logo.center {
+    font-size: 40px;
+  }
+} */
+
+@media only screen and (max-width: 600px) {
+  .brand-logo.center {
+    font-size: 40px;
+    padding-top: 10px;
+  }
 }
 
 #home-main {
