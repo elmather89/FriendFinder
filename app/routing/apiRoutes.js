@@ -14,35 +14,11 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
-        newDog.routeName = newDog.name.replace(/\s+/g, "").toLowerCase();
 
-        console.log(newDog);
-      
-        dogData.push(newDog);
-      
-        res.json(newDog);
-      
-        // for (var i = 0; i < newDog.scores.length; i++) {
-        //     newDog.scores[i] = parseInt(newDog.scores[i]);
-        // }
+        var newDogData = req.body;
+        // console.log(newDogData);
 
-        // var bestMatch = 0;
-        // var minDiff = 20;
-
-        // for (var i = 0; i < dogData.length; i++) {
-        //     var totalDiff = 0;
-
-        //     for (var j = 0; j < dogData[i].scores.length; j++) {
-        //         var calcDiff = Math.abs(newDog.scores[j] - dogData[i].scores[j]);
-        //         totalDiff = totalDiff + calcDiff;
-        //     }
-
-        //     if (totalDiff < minDiff) {
-        //         bestMatch = i;
-        //         minDiff = totalDiff;
-        //     }
-        // }
-        // dogData.push(newDog);
-        // res.json(dogData[bestMatch]);
+        dogData.push(newDogData);
+        res.json(dogData);
     });
 };
