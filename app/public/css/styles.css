@@ -25,12 +25,6 @@ nav .nav-wrapper {
     display: inline-block;
 }
 
-/* @media only screen and (max-width: 793px) {
-  .brand-logo.center {
-    font-size: 40px;
-  }
-} */
-
 @media only screen and (max-width: 600px) {
   .brand-logo.center {
     font-family: 'EB Garamond', serif;
