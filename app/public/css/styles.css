@@ -33,6 +33,10 @@ nav .nav-wrapper {
 
 @media only screen and (max-width: 600px) {
   .brand-logo.center {
+    font-family: 'EB Garamond', serif;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
     font-size: 40px;
     padding-top: 10px;
   }
