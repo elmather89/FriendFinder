@@ -1,1 +1,8 @@
-# FriendFinder
+# :dog: FriendFinder :dog:
+This is a full-stack site that takes in user's input via a survey and then compares their responses to those from other users. Then a response with the closest answers to the user's will be displayed!
+
+## Built with:
+* Express
+* Javascript
+* Materialize CSS
+* Herokue (host the deployed app)
