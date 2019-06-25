@@ -5,7 +5,6 @@ This is a full-stack site that takes in user's input via a survey and then compa
 * Express
 * Javascript
 * Materialize CSS
-* Herokue (host the deployed app)
+* Heroku (host the deployed app)
 
-### See the deployed site here:
-[FriendFinder Heroku app](https://dry-sands-37418.herokuapp.com/)
+### See the deployed site here: [FriendFinder Heroku app](https://dry-sands-37418.herokuapp.com/)
